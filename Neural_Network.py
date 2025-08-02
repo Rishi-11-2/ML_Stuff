@@ -16,7 +16,7 @@ def init_data():
     data=np.array(data)
 
     print(data)
-
+       
     np.random.shuffle(data)
 
     m,n=data.shape
@@ -150,7 +150,7 @@ def get_accuracy(preds, Y):
     return np.mean(preds == Y)
 
 
-def gradient_descent(X, Y, n_hidden=64, iterations=1000, alpha=0.01):
+def gradient_descent(X, Y, n_hidden=10, iterations=1000, alpha=0.01):
     """
     Trains a two‐layer net on (X, Y). Returns final W1,b1,W2,b2.
     X: shape (n_input, m)  (e.g. (784, m) for MNIST)
