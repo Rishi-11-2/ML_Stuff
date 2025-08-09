@@ -1,147 +1,137 @@
-# ML Projects Collection
+# Machine Learning Projects Collection
 
-This repository contains multiple machine learning projects, including:
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-1. Handwritten Digit Recognition with Neural Networks
-2. Monte Carlo Tree Search for Answer Generation
+Welcome to my Machine Learning Projects Collection! This repository serves as a comprehensive resource for understanding and implementing various machine learning algorithms and architectures, from fundamental concepts to cutting-edge models.
 
-## 1. Handwritten Digit Recognition
+## 🚀 Projects
 
-This project implements a two-layer neural network from scratch using NumPy to classify handwritten digits from the MNIST dataset.
+### [GPT-2](./GPT-2/)
+A complete implementation of OpenAI's GPT-2 model with pre-training and fine-tuning capabilities.
+- **Features**: Multi-head attention, transformer architecture, BPE tokenization
+- **Use Cases**: Text generation, language modeling, transfer learning
+- **Tech Stack**: PyTorch, Transformers, Hugging Face Datasets
 
-## Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Model Architecture](#model-architecture)
-- [Training](#training)
-- [Evaluation](#evaluation)
-- [Results](#results)
-- [Code Structure](#code-structure)
-- [License](#license)
+### [NanoGPT](./NanoGPT/)
+A minimal but complete implementation of the GPT architecture, designed for educational purposes.
+- **Features**: Pure PyTorch, efficient training, text generation
+- **Use Cases**: Learning transformer architectures, small-scale language models
+- **Tech Stack**: PyTorch, tqdm, numpy
 
-## Overview
+### [Neural Network From Scratch](./Neural_Network_From_Scratch/)
+Building neural networks from first principles using only NumPy.
+- **Features**: Backpropagation, various layers, activation functions
+- **Use Cases**: Educational, understanding deep learning fundamentals
+- **Tech Stack**: NumPy, Matplotlib
 
-This implementation demonstrates a simple yet effective neural network for digit recognition using:
-- Input layer: 784 neurons (28x28 pixel images)
-- Hidden layer: 64 neurons with ReLU activation
-- Output layer: 10 neurons (digits 0-9) with SoftMax activation
+### [makemore](./makemore/)
+Character-level language models with multiple architectures.
+- **Features**: Bigram, MLP, RNN, LSTM, GRU, and Transformer models
+- **Use Cases**: Text generation, language modeling experiments
+- **Tech Stack**: PyTorch, tqdm, matplotlib
 
-The network is trained using gradient descent with backpropagation.
+### [Monte Carlo Tree Search](./Monte_Carlo_Tree_Search/)
+Implementation of the Monte Carlo Tree Search algorithm for game AI.
+- **Features**: Game-agnostic design, visualization, parallel simulations
+- **Use Cases**: Game AI, decision making, planning
+- **Tech Stack**: Python, NumPy, Matplotlib
 
-## Features
+## 🛠️ Getting Started
 
-- Pure NumPy implementation (no deep learning frameworks)
-- Mini-batch gradient descent
-- ReLU activation for hidden layer
-- SoftMax activation for output layer
-- Cross-entropy loss function
-- Training progress monitoring
-- Validation accuracy calculation
+### Prerequisites
 
-## Requirements
+- Python 3.8+
+- pip (Python package manager)
+- Git (for cloning the repository)
 
-- Python 3.6+
-- NumPy
-- Pandas
-- Matplotlib (for data visualization)
+### Installation
 
-## Installation
-
-1. Clone the repository:
+1. **Clone the repository**
    ```bash
    git clone https://github.com/yourusername/ML_Stuff.git
    cd ML_Stuff
    ```
 
-2. Install the required packages:
+2. **Set up a virtual environment (recommended)**
    ```bash
-   pip install numpy pandas matplotlib
+   python -m venv venv
+   source venv/bin/activate  # On Windows: .\venv\Scripts\activate
    ```
 
-## Usage
-
-1. Ensure you have the MNIST dataset in the correct location or modify the path in `init_data()` function.
-
-2. Run the neural network:
+3. **Install project-specific dependencies**
+   Each project has its own requirements. For example, to install requirements for GPT-2:
    ```bash
-   python Neural_Network.py
+   cd GPT-2
+   pip install -r requirements.txt
    ```
 
-## Model Architecture
+## 🎯 Usage
 
-The network consists of:
-- **Input Layer**: 784 neurons (28x28 pixel images)
-- **Hidden Layer**: 10 neurons with ReLU activation
-- **Output Layer**: 10 neurons (digits 0-9) with SoftMax activation
+Each project contains detailed documentation and examples in its respective directory. Here's a quick start for running any project:
 
-## Training
+1. Navigate to the project directory
+2. Follow the instructions in the project's README.md
+3. Run the main script or Jupyter notebook
 
-The model is trained using:
-- Mini-batch gradient descent
-- Learning rate: 0.01 (configurable)
-- Number of iterations: 1000 (configurable)
-- Training progress is printed every 50 iterations
-
-## Evaluation
-
-After training, the model's performance is evaluated on a separate validation set. The accuracy is printed after training completes.
-
-## Results
-
-Typical results include:
-- Training accuracy: ~95-98%
-- Validation accuracy: ~90-95%
-
-## Code Structure
-
-- `Neural_Network.py`: Main implementation file containing:
-  - Data loading and preprocessing
-  - Neural network initialization
-  - Forward and backward propagation
-  - Training loop
-  - Evaluation functions
-
-## 2. Monte Carlo Tree Search for Answer Generation
-
-This project implements a Monte Carlo Tree Search (MCTS) algorithm for generating and refining answers to questions. The system uses a language model to generate, critique, and improve responses through an iterative process.
-
-### Features
-
-- **Tree-based Search**: Implements MCTS to explore different answer variations
-- **Answer Generation**: Uses language models to generate potential answers
-- **Self-Critique**: Automatically critiques and scores generated answers
-- **Iterative Improvement**: Refines answers based on critique feedback
-- **Multi-turn Reasoning**: Supports complex reasoning through multiple iterations
-
-### How It Works
-
-1. **Initialization**: Starts with seed answers or generates initial responses
-2. **Selection**: Uses UCB1 algorithm to select the most promising node
-3. **Expansion**: Generates new answer variations for promising paths
-4. **Simulation**: Evaluates the quality of answers through self-critique
-5. **Backpropagation**: Updates node statistics based on evaluation results
-
-### Key Components
-
-- `Node` class: Represents a node in the search tree with answer, visits, and value
-- `MCTS` class: Implements the Monte Carlo Tree Search algorithm
-- `rate_answer`: Evaluates answer quality using language model feedback
-- `get_critique`: Generates detailed critiques of answers
-- `improve_answer`: Refines answers based on critiques
-
-### Example Usage
-
-```python
-question = "What is the capital of France?"
-seed_answers = ["I don't know", "I'm not sure", "I can't say"]
-mcts = MCTS(question, seed_answers, iterations=5)
-best_answer = mcts.search()
-print(f"Best answer: {best_answer}")
+Example for running the NanoGPT training:
+```bash
+cd NanoGPT
+python train.py
 ```
 
-## License
+## 📊 Project Structure
 
-This project is open source and available under the [MIT License](LICENSE).
+```
+ML_Stuff/
+├── GPT-2/                  # GPT-2 implementation
+│   ├── pre-training/       # Pre-training scripts
+│   ├── notebooks/          # Jupyter notebooks for exploration
+│   └── README.md           # Project documentation
+│
+├── NanoGPT/                # Minimal GPT implementation
+│   ├── train.py            # Training script
+│   ├── model.py            # Model architecture
+│   └── README.md           # Documentation
+│
+├── Neural_Network_From_Scratch/  # NumPy neural networks
+│   ├── neural_network.py   # Core implementation
+│   └── README.md           # Documentation
+│
+├── makemore/               # Character-level language models
+│   ├── makemore.py         # Main implementation
+│   └── README.md           # Documentation
+│
+├── Monte_Carlo_Tree_Search/ # MCTS implementation
+│   ├── mcts.py             # Core algorithm
+│   └── README.md           # Documentation
+│
+└── README.md               # This file
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. **Report bugs**: Open an issue with detailed reproduction steps
+2. **Suggest features**: Share your ideas for improvements
+3. **Submit code**: Fork the repo and open a pull request
+
+Please read our [Contributing Guidelines](CONTRIBUTING.md) for more details.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📚 Resources
+
+- [PyTorch Documentation](https://pytorch.org/docs/stable/index.html)
+- [Deep Learning Book](https://www.deeplearningbook.org/)
+- [CS231n: Convolutional Neural Networks](http://cs231n.stanford.edu/)
+- [The Annotated Transformer](http://nlp.seas.harvard.edu/2018/04/03/attention.html)
+
+## 🙏 Acknowledgments
+
+- The open-source community for their invaluable contributions
+- All the researchers and developers who have shared their knowledge
+- Special thanks to the creators of PyTorch, NumPy, and other essential libraries
