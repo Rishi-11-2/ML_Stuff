@@ -150,22 +150,6 @@ python train.py \
 --device       Device to use: cpu|cuda (default: cuda if available)
 ```
 
-### Example Generation Commands
-
-```bash
-# Generate with temperature sampling
-python generate.py --model=transformer --checkpoint=checkpoints/transformer.pt --temperature=0.8
-
-# Use top-k sampling
-python generate.py --model=lstm --checkpoint=checkpoints/lstm.pt --top-k=10
-
-# Use nucleus sampling
-python generate.py --model=transformer --checkpoint=checkpoints/transformer.pt --top-p=0.9
-
-# Generate with a prompt
-python generate.py --model=transformer --checkpoint=checkpoints/transformer.pt --prompt="chris"
-```
-
 ## Examples
 
 ### Training on Custom Data
@@ -188,29 +172,6 @@ python generate.py --model=transformer --checkpoint=checkpoints/transformer.pt -
    python generate.py --model=transformer --checkpoint=checkpoints/transformer.pt --count=20
    ```
 
-## Performance
-
-### Training Speed
-
-| Model      | Steps/sec (CPU) | Steps/sec (GPU) |
-|------------|----------------|----------------|
-| Bigram     | 10,000+        | N/A            |
-| MLP        | 1,200          | 8,500          |
-| RNN        | 800            | 6,200          |
-| LSTM       | 400            | 3,800          |
-| GRU        | 450            | 4,200          |
-| Transformer| 200            | 1,500          |
-
-### Model Sizes
-
-| Model      | Parameters | Training Time (10k steps) |
-|------------|------------|--------------------------|
-| Bigram     | ~1K        | < 1 min                 |
-| MLP        | ~50K       | ~2 min                  |
-| RNN        | ~100K      | ~5 min                  |
-| LSTM       | ~200K      | ~10 min                 |
-| GRU        | ~180K      | ~9 min                  |
-| Transformer| ~500K      | ~25 min                 |
 
 ## Contributing
 
@@ -231,11 +192,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Andrej Karpathy](https://github.com/karpathy) for the original makemore series
 - PyTorch team for the amazing deep learning framework
 - The open-source ML community for inspiration and resources
-
-- `train.py`: Training script
-- `sample.py`: Text generation script
-- `model.py`: Model architectures
-- `utils.py`: Utility functions
 - `papers/`: Research papers related to the implementation
 
 - Bigram model
